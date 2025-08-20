@@ -27,7 +27,6 @@ const LoginSignup = () => {
             alert(`Welcome ${username}! You have successfully logged in.`);
             navigate('/');
         } else {
-            // Signup
             if (password !== confirmPassword) {
                 alert("Passwords do not match!");
                 return;

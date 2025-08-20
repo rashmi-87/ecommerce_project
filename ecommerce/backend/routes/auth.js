@@ -5,7 +5,6 @@ import bcrypt from 'bcrypt';
 
 const router = express.Router();
 
-// Signup
 router.post('/signup', async (req, res) => {
     const { name, email, password } = req.body;
     try {
@@ -20,7 +19,6 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-// Login
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {

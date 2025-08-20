@@ -20,7 +20,6 @@ const ProductCard = ({ product }) => {
         alert(`${product.title} added to cart!`);
     };
 
-    // Check if the image is already an absolute URL
     const imageUrl = product.image?.startsWith('http')
         ? product.image
         : `${process.env.REACT_APP_BACKEND_URL}${product.image}`;

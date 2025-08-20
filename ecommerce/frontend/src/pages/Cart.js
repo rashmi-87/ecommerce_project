@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, updateCartQuantity } from '../redux/actions/productActions';
 import './Cart.css';
 
-// formatCurrency helper function
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-IN', {
         style: 'currency',
@@ -29,7 +28,6 @@ const Cart = () => {
 
     const handleCheckout = async () => {
         try {
-            //Create an order on your backend
             const orderResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/create-order`, {
                 method: 'POST',
                 headers: {
@@ -47,16 +45,14 @@ const Cart = () => {
 
             const order = await orderResponse.json();
 
-            // Configure Razorpay options
             const options = {
-                key: process.env.REACT_APP_RAZORPAY_KEY_ID, // Key ID
-                amount: order.amount, // Amount is in currency subunits.
+                key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+                amount: order.amount,
                 currency: order.currency,
-                name: "E-Commerce Store", // Business name
+                name: "E-Commerce Store",
                 description: "Test Transaction",
-                order_id: order.id, // order ID from your backend.
+                order_id: order.id,
                 handler: async function (response) {
-                    //Verify the payment
                     const verificationResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/verify`, {
                         method: 'POST',
                         headers: {
@@ -84,7 +80,6 @@ const Cart = () => {
                 },
             };
             
-            //Opening Razorpay checkout form
             const paymentObject = new window.Razorpay(options);
             paymentObject.open();
 

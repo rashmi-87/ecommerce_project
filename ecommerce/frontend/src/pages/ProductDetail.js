@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../redux/actions/productActions';
 import './ProductDetail.css';
 
-// helper function to format currency as Indian Rupees
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-IN', {
         style: 'currency',
@@ -21,12 +20,10 @@ const ProductDetail = () => {
 
     const [quantity, setQuantity] = useState(1);
 
-    // Get backend URL from env
     const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
     const imageUrl = product ? `${backendUrl}${product.image}` : "";
 
     useEffect(() => {
-        // fetching a single product if it's not already in the store
     }, [id]);
 
     const handleAddToCart = () => {

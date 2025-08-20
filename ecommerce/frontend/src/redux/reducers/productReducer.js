@@ -15,7 +15,7 @@ const initialState = {
     loading: false,
     error: null,
     searchTerm: '',
-    sortCategory: 'all', // 'all', 'men\'s clothing', 'women\'s clothing', 'jewelery', 'electronics'
+    sortCategory: 'all',
 };
 
 const productReducer = (state = initialState, action) => {

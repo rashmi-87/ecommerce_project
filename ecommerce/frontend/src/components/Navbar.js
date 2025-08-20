@@ -12,7 +12,6 @@ const Navbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Scroll to products section or navigate home first
     const goToProducts = () => {
         if (location.pathname === '/') {
             const section = document.getElementById("product-list-section");
