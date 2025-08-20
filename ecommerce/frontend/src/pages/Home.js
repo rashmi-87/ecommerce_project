@@ -62,7 +62,8 @@ const Home = () => {
                     </button>
                 </div>
                 <div className="hero-image">
-                    <img src={`${process.env.REACT_APP_API_URL}/images/welcome.jpg`} alt="Welcome" />
+                    <img src={`${process.env.REACT_APP_BACKEND_URL}/images/welcome.jpg`} alt="Welcome" />
+
                 </div>
             </div>
 
