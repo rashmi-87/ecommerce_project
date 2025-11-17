@@ -15,7 +15,17 @@ connectDB();
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(cors());
+// CORS configuration for production
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',
+    'https://ecommerce-jzk1.onrender.com'
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const __filename = fileURLToPath(import.meta.url);
