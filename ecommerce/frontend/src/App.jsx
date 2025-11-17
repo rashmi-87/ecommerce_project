@@ -1,10 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import ProductDetail from './pages/ProductDetail';
-import Cart from './pages/Cart';
-import LoginSignup from './pages/LoginSignup';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './styles/toast.css';
+import Navbar from './components/Navbar.jsx';
+import Home from './pages/Home.jsx';
+import ProductDetail from './pages/ProductDetail.jsx';
+import Cart from './pages/Cart.jsx';
+import LoginSignup from './pages/LoginSignup.jsx';
 import './App.css';
 
 function App() {
@@ -19,6 +22,7 @@ function App() {
                     <Route path="/login" element={<LoginSignup />} />
                 </Routes>
             </div>
+            <ToastContainer />
         </Router>
     );
 }
